@@ -24,8 +24,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -120,8 +123,71 @@ public class FragmentTrack extends Fragment {
         TLSpeedAvg = (TableLayout) view.findViewById(R.id.id_tableLayout_SpeedAvg) ;
         TLAltitudeGap = (TableLayout) view.findViewById(R.id.id_tableLayout_AltitudeGap) ;
         TLOverallDirection = (TableLayout) view.findViewById(R.id.id_tableLayout_OverallDirection) ;
+        ///////////////////////////////////////////////////// KOPLAC/////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////BUTTONS////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////RedTrail///////////////////////////////////////////////////////////
+        ToggleButton toggle1 = (ToggleButton) view.findViewById(R.id.redTrail);
+        toggle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
 
+                    Toast.makeText(getActivity(), "RedON:::",
+                            Toast.LENGTH_SHORT).show();
+                } else {
 
+                    Toast.makeText(getActivity(), "RedOFF:::",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        /////////////////////////////////////////////////////////////BlueTrail///////////////////////////////////////////////////////////
+        ToggleButton toggle2 = (ToggleButton) view.findViewById(R.id.blueTrail);
+        toggle2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+                    Toast.makeText(getActivity(), "BlueON:::",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+
+                    Toast.makeText(getActivity(), "BlueOFF:::",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+/////////////////////////////////////////////////////////////GreenTrail///////////////////////////////////////////////////////////
+        ToggleButton toggle3 = (ToggleButton) view.findViewById(R.id.greenTrail);
+        toggle3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+                    Toast.makeText(getActivity(), "GreenON:::",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+
+                    Toast.makeText(getActivity(), "GreenOFF:::",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        /////////////////////////////////////////////////////////////YellowTrail///////////////////////////////////////////////////////////
+        ToggleButton toggle4 = (ToggleButton) view.findViewById(R.id.yellowTrail);
+        toggle4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+                    Toast.makeText(getActivity(), "YellowON:::",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+
+                    Toast.makeText(getActivity(), "YellowOFF:::",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         return view;
     }
 
