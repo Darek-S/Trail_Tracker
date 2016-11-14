@@ -27,7 +27,7 @@ import android.location.Location;
 
 import java.util.ArrayList;
 import java.util.List;
-
+///////////////////////////////////HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO////////////////////////////////////////
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
