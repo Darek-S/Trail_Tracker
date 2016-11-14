@@ -133,10 +133,12 @@ public class FragmentTrack extends Fragment {
 
                     Toast.makeText(getActivity(), "RedON:::",
                             Toast.LENGTH_SHORT).show();
+                    ((GPSApplication)getActivity().getApplication()).setColor("red");//Darek edit
                 } else {
 
                     Toast.makeText(getActivity(), "RedOFF:::",
                             Toast.LENGTH_SHORT).show();
+                    ((GPSApplication)getActivity().getApplication()).setColor("none");//Darek edit
                 }
             }
         });
@@ -149,10 +151,12 @@ public class FragmentTrack extends Fragment {
 
                     Toast.makeText(getActivity(), "BlueON:::",
                             Toast.LENGTH_SHORT).show();
+                    ((GPSApplication)getActivity().getApplication()).setColor("blue");//Darek edit
                 } else {
 
                     Toast.makeText(getActivity(), "BlueOFF:::",
                             Toast.LENGTH_SHORT).show();
+                    ((GPSApplication)getActivity().getApplication()).setColor("none");//Darek edit
                 }
             }
         });
@@ -164,10 +168,12 @@ public class FragmentTrack extends Fragment {
 
                     Toast.makeText(getActivity(), "GreenON:::",
                             Toast.LENGTH_SHORT).show();
+                    ((GPSApplication)getActivity().getApplication()).setColor("green");//Darek edit
                 } else {
 
                     Toast.makeText(getActivity(), "GreenOFF:::",
                             Toast.LENGTH_SHORT).show();
+                    ((GPSApplication)getActivity().getApplication()).setColor("none");//Darek edit
                 }
             }
         });
@@ -179,10 +185,12 @@ public class FragmentTrack extends Fragment {
 
                     Toast.makeText(getActivity(), "YellowON:::",
                             Toast.LENGTH_SHORT).show();
+                    ((GPSApplication)getActivity().getApplication()).setColor("yellow");//Darek edit
                 } else {
 
                     Toast.makeText(getActivity(), "YellowOFF:::",
                             Toast.LENGTH_SHORT).show();
+                    ((GPSApplication)getActivity().getApplication()).setColor("none");//Darek edit
                 }
             }
         });

@@ -36,7 +36,8 @@ public class LocationExtended {
     private String _Description = "";
     private double _AltitudeEGM96Correction = NOT_AVAILABLE;
     private int _NumberOfSatellites = NOT_AVAILABLE;
-
+    //Darek edit
+    private String _Color ="none";
 
     // Constructor
     public LocationExtended(Location location) {
@@ -53,6 +54,12 @@ public class LocationExtended {
 
 
     // Getters and Setters -------------------------------------------------------------------------
+    //Darek edit
+    public void setColor(String color){
+        _Color = color;
+    }
+
+    public String getColor(){ return _Color; }
 
     public String getDescription() {
         return _Description;

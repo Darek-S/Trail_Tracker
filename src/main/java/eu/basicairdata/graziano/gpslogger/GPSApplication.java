@@ -60,6 +60,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class GPSApplication extends Application implements GpsStatus.Listener, LocationListener {
 
+    //Darek edit
+    private String color="none";
+    public void setColor(String c){color=c;}
     public static final float M_TO_FT = 3.280839895f;
 
     public static final int UM_METRIC_MS = 0;
@@ -561,6 +564,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
         if (loc != null) {      // Location data is valid
             LocationExtended eloc = new LocationExtended(loc);
             eloc.setNumberOfSatellites(getNumberOfSatellites());
+            eloc.setColor(color);//Darek edit
             boolean ForceRecord = false;
 
             gpsunavailablehandler.removeCallbacks(unavailr);                            // Cancel the previous unavail countdown handler
@@ -784,6 +788,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
                 if (asyncTODO.TaskType.equals("TASK_ADDLOCATION")) {
                     locationExtended = new LocationExtended(asyncTODO.location.getLocation());
                     locationExtended.setNumberOfSatellites(asyncTODO.location.getNumberOfSatellites());
+                    locationExtended.setColor(asyncTODO.location.getColor());
                     _currentLocationExtended = locationExtended;
                     EventBus.getDefault().post("UPDATE_FIX");
                     track.add(locationExtended);
@@ -807,6 +812,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
                 if (asyncTODO.TaskType.equals("TASK_UPDATEFIX")) {
                     _currentLocationExtended = new LocationExtended(asyncTODO.location.getLocation());
                     _currentLocationExtended.setNumberOfSatellites(asyncTODO.location.getNumberOfSatellites());
+                    _currentLocationExtended.setColor(asyncTODO.location.getColor());
                     EventBus.getDefault().post("UPDATE_FIX");
                 }
 
