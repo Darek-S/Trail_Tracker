@@ -61,8 +61,49 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class GPSApplication extends Application implements GpsStatus.Listener, LocationListener {
 
     //Darek edit
-    private String color="none";
+    private String color="0000";
     public void setColor(String c){color=c;}
+    public void setRed(Boolean set){
+        String postfix=color.substring(1,4);
+        if(set) {
+            color = "R" + postfix;
+        }
+        else{
+            color = "0" + postfix;
+        }
+    }
+    public void setBlue(Boolean set){
+        String prefix=color.substring(0,1);
+        String postfix=color.substring(2,4);
+        if(set) {
+            color = prefix +"B" + postfix;
+        }
+        else{
+            color = prefix +"0" + postfix;
+        }
+    }
+    public void setGreen(Boolean set){
+        String prefix=color.substring(0,2);
+        String postfix=color.substring(3,4);
+        if(set) {
+            color = prefix +"G" + postfix;
+        }
+        else{
+            color = prefix +"0" + postfix;
+        }
+    }
+    public void setYellow(Boolean set){
+        String prefix=color.substring(0,3);
+
+        if(set) {
+            color = prefix +"Y";
+        }
+        else{
+            color = prefix +"0";
+        }
+    }
+
+
     public static final float M_TO_FT = 3.280839895f;
 
     public static final int UM_METRIC_MS = 0;
