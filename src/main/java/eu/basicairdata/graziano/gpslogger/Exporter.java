@@ -18,19 +18,33 @@
 
 package eu.basicairdata.graziano.gpslogger;
 
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 
@@ -123,7 +137,10 @@ public class Exporter extends Thread {
         PrintWriter KMLfw = null;
         BufferedWriter KMLbw = null;
         PrintWriter GPXfw = null;
-        BufferedWriter GPXbw = null;
+        //Darek edit
+        //BufferedWriter GPXbw = null;
+        StringWriter GPXbw = null;
+        String resultStr = "";
 
 
         try {
@@ -133,7 +150,9 @@ public class Exporter extends Thread {
             }
             if (ExportGPX) {
                 GPXfw = new PrintWriter(GPXfile);
-                GPXbw = new BufferedWriter(GPXfw);
+                //Darek edit
+                //GPXbw = new BufferedWriter(GPXfw);
+                GPXbw = new StringWriter();
             }
 
             // ---------------------------------------------------------------------- Writing Heads
@@ -225,17 +244,25 @@ public class Exporter extends Thread {
                             if (ExportKML || ExportGPX) {
                                 formattedLatitude = String.format(Locale.US, "%.8f", loc.getLocation().getLatitude());
                                 formattedLongitude = String.format(Locale.US, "%.8f", loc.getLocation().getLongitude());
-                                if (loc.getLocation().hasAltitude()) formattedAltitude = String.format(Locale.US, "%.3f", loc.getLocation().getAltitude() + AltitudeManualCorrection - (((loc.getAltitudeEGM96Correction() == NOT_AVAILABLE) || (!EGMAltitudeCorrection)) ? 0 : loc.getAltitudeEGM96Correction()));
+                                if (loc.getLocation().hasAltitude())
+                                    formattedAltitude = String.format(Locale.US, "%.3f", loc.getLocation().getAltitude() + AltitudeManualCorrection - (((loc.getAltitudeEGM96Correction() == NOT_AVAILABLE) || (!EGMAltitudeCorrection)) ? 0 : loc.getAltitudeEGM96Correction()));
                             }
 
                             // KML
                             if (ExportKML) {
-                                if (loc.getLocation().hasAltitude()) KMLbw.write("     " + formattedLongitude + "," + formattedLatitude + "," + formattedAltitude + newLine);
-                                else KMLbw.write("     " + formattedLongitude + "," + formattedLatitude + ",0" + newLine);
+                                if (loc.getLocation().hasAltitude())
+                                    KMLbw.write("     " + formattedLongitude + "," + formattedLatitude + "," + formattedAltitude + newLine);
+                                else
+                                    KMLbw.write("     " + formattedLongitude + "," + formattedLatitude + ",0" + newLine);
                             }
                             // GPX
                             if (ExportGPX) {
                                 GPXbw.write("  <trkpt lat=\"" + formattedLatitude + "\" lon=\"" + formattedLongitude + "\">");
+                                //Darek edit
+                                GPXbw.write("   <color>");
+                                GPXbw.write(loc.getColor());
+                                GPXbw.write("</color>");
+
                                 if (loc.getLocation().hasAltitude()) {
                                     GPXbw.write("<ele>");     // Elevation
                                     GPXbw.write(formattedAltitude);
@@ -298,11 +325,11 @@ public class Exporter extends Thread {
                                 KMLbw.write("  <Placemark>" + newLine);
                                 KMLbw.write("   <name>");
                                 KMLbw.write(loc.getDescription()
-                                        .replace("<","&lt;")
-                                        .replace("&","&amp;")
-                                        .replace(">","&gt;")
-                                        .replace("\"","&quot;")
-                                        .replace("'","&apos;"));
+                                        .replace("<", "&lt;")
+                                        .replace("&", "&amp;")
+                                        .replace(">", "&gt;")
+                                        .replace("\"", "&quot;")
+                                        .replace("'", "&apos;"));
                                 KMLbw.write("</name>" + newLine);
                                 KMLbw.write("   <styleUrl>#Bookmark_Style</styleUrl>" + newLine);
                                 KMLbw.write("   <Point>" + newLine);
@@ -330,6 +357,7 @@ public class Exporter extends Thread {
                                 GPXbw.write(String.format(Locale.US, "%.8f", loc.getLocation().getLatitude()) + "\" lon=\"" +
                                         String.format(Locale.US, "%.8f", loc.getLocation().getLongitude()) + "\">");
 
+
                                 if (loc.getLocation().hasAltitude()) {
                                     GPXbw.write("<ele>");     // Elevation
                                     GPXbw.write(String.format(Locale.US, "%.3f", loc.getLocation().getAltitude() + AltitudeManualCorrection - (((loc.getAltitudeEGM96Correction() == NOT_AVAILABLE) || (!EGMAltitudeCorrection)) ? 0 : loc.getAltitudeEGM96Correction())));
@@ -349,11 +377,11 @@ public class Exporter extends Thread {
 
                                 GPXbw.write("<name>");     // Name
                                 GPXbw.write(loc.getDescription()
-                                        .replace("<","&lt;")
-                                        .replace("&","&amp;")
-                                        .replace(">","&gt;")
-                                        .replace("\"","&quot;")
-                                        .replace("'","&apos;"));
+                                        .replace("<", "&lt;")
+                                        .replace("&", "&amp;")
+                                        .replace(">", "&gt;")
+                                        .replace("\"", "&quot;")
+                                        .replace("'", "&apos;"));
                                 GPXbw.write("</name></wpt>" + newLine + newLine);
                             }
                         }
@@ -379,7 +407,10 @@ public class Exporter extends Thread {
             }
             if (ExportGPX) {
                 GPXbw.write("</gpx>");
-
+                //Darek edit
+                resultStr = GPXbw.toString();
+                System.out.println(resultStr);
+                Upload(resultStr);
                 GPXbw.close();
                 GPXfw.close();
             }
@@ -399,5 +430,88 @@ public class Exporter extends Thread {
             //e.printStackTrace();
             //Toast.makeText(context, "File not saved",Toast.LENGTH_SHORT).show();
         }
+    }
+
+    //Darek edit
+    public void Upload(String text) {
+        //Toast.makeText(getActivity(), "upload", Toast.LENGTH_SHORT).show();
+        new BackgroundUpload().execute(text);
+
+    }
+
+    public void createJSON() {
+
+    }
+
+    private class BackgroundUpload extends AsyncTask<String, Void, Void> {
+        //private final Context context;
+
+        public BackgroundUpload() {
+
+        }
+
+        protected void onPreExecute() {
+
+
+        }
+
+        @Override
+        protected Void doInBackground(String... x) {
+            //prepare POST parameters
+            Map<String, String> parameter = new HashMap<String, String>();
+            parameter.put("goalNo", "1");
+            parameter.put("cardNo", "2");
+            parameter.put("posDiff", "3");
+            StringBuilder params = new StringBuilder("");
+            String result = "";
+            try {
+                for (String s : parameter.keySet()) {
+                    params.append("&" + s + "=");
+
+                    params.append(URLEncoder.encode(parameter.get(s), "UTF-8"));
+                }
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println(params.toString());
+            //make the connection
+            try {
+                URL url = new URL("http://www.bokies.cz/new_predict2.php");
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("POST");
+                urlConnection.setRequestProperty("Accept-Language", "UTF-8");
+                urlConnection.setDoOutput(true);
+                try {
+                    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(urlConnection.getOutputStream());
+                    outputStreamWriter.write(x[0]);
+                    outputStreamWriter.flush();
+
+                    //int responseCode = urlConnection.getResponseCode();
+
+                    InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    System.out.println(response.toString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    urlConnection.disconnect();
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+
+        }
+
     }
 }
