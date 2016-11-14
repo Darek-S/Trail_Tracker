@@ -57,7 +57,7 @@
     <string name="altitude_gap">Altitude Gap</string>
 
     <!-- Track Status message -->
-    <string name="track_empty">New Track\n\nStart recording Trackpoints\nor add a Placemark\nusing one of the buttons below</string>
+    <string name="track_empty">For new a track!\n Press Track button below\n\n To map the type of the trail select type from the\n Trail color and Surface Type buttons! \n\n You can changge the buttons during you tracking\n if the conditions are changing!</string>
 
     <!-- Recording buttons (bottom side) -->
     <string name="placemarks">Placemarks</string>
