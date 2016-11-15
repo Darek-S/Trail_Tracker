@@ -28,7 +28,7 @@
 
     <LinearLayout
         android:id="@+id/id_fragmenttrack"
-        android:background="@drawable/background"
+        android:background="@color/colorTrackBackground"
         android:paddingTop="6dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -357,8 +357,8 @@
 
                 <TextView
                     android:text="Trail Color:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
                     android:id="@+id/textView"
                     android:textStyle="normal|bold"
                     android:textColor="@color/colorPrimaryDark" /> />
@@ -367,13 +367,14 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -381,11 +382,13 @@
 
                     <ToggleButton
                         android:text="ToggleButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/redTrail"
                         android:layout_weight="1"
-                         />
+                        android:background="@drawable/red_trail"
+                        android:textOn=""
+                        android:textOff=""/>
                 </TableRow>
 
                 <TableRow
@@ -394,19 +397,22 @@
 
                     <ToggleButton
                         android:text="ToggleButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/blueTrail"
                         android:layout_weight="1"
-                       />
+                        android:background="@drawable/blue_trail"
+                        android:textOn=""
+                        android:textOff=""/>
                 </TableRow>
 
             </TableLayout>
 
             <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -414,10 +420,13 @@
 
                     <ToggleButton
                         android:text="ToggleButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/greenTrail"
                         android:layout_weight="1"
+                        android:background="@drawable/green_trail"
+                        android:textOn=""
+                        android:textOff=""
                          />
                 </TableRow>
 
@@ -432,7 +441,10 @@
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        android:checked="false"
+                        android:background="@drawable/yellow_trail"
+                        android:textOn=""
+                        android:textOff=""/>
                 </TableRow>
 
             </TableLayout>
@@ -449,7 +461,7 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:text="Surface Type:"
+                    android:text="Surface Type: (Not in this build)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView2"
@@ -503,12 +515,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <TextView
-        android:text="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
 
     <TextView
         android:layout_width="fill_parent"
