@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- When selected, use grey -->
+    <item android:drawable="@mipmap/blue_trail_on"
+
+        android:state_checked="false" />
+    <corners
+        android:radius="5dp" />
+    <!-- When not selected, use white-->
+    <item android:drawable="@mipmap/blue_trail_off"
+        android:state_checked="true"/>
+    <corners
+        android:radius="5dp" />
+</selector>
