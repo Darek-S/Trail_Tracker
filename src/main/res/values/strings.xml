@@ -19,7 +19,7 @@
   -->
 
 <resources>
-    <string name="app_name">GPS Logger</string>
+    <string name="app_name">Trail Tracker</string>
 
     <!-- Tabs -->
     <string name="tab_gpsfix">GPS Fix</string>
@@ -88,7 +88,7 @@
     <string name="card_trackinfo_placemarks">Places</string>
 
     <!-- Context menu of Tracklist -->
-    <string name="card_menu_export">Export</string>
+    <string name="card_menu_export">Upload</string>
     <string name="card_menu_view">View in Google Earth</string>
     <string name="card_menu_delete">Delete</string>
     <string name="card_menu_share">Share with ...</string>
@@ -162,7 +162,7 @@
 
     <!-- About Dialog -->
     <string name="about_version">ver.</string>
-    <string name="about_description">Copyright (C) 2016 BasicAirData\nhttp://www.basicairdata.eu\n\nBasicAirData GPS Logger records your tracks using GPS. You can view them in Google Earth, share and export them in GPSLogger folder of your device in KML and GPX format.\n\nThis program is free software, released under the terms of the GNU General Public License.\nFor more details see: http://www.gnu.org/licenses/gpl.txt\n\nFor EGM96 geoid file disclaimer see: http://earth-info.nga.mil/GandG/disclaim.html\n\nIf You enjoy using this app, please take a moment to rate GPS Logger in the Google Store.</string>
+    <string name="about_description">Trail Tracker records your tracks using GPS and uploads it to our server in order to help us to improve the OSM. You can view your tracks in Google Earth and share  them\n\nThis program is free software, released under the terms of the GNU General Public License\nFor more details see: http://www.gnu.org/licenses/gpl.txt\n\nFor EGM96 geoid file disclaimer see: http://earth-info.nga.mil/GandG/disclaim.html\n\nIf You enjoy using this app, please take a moment to rate Trail Tracker in the Google Store.\n\n The Original BasicAirData GPS Logger was developed by BasicAirData </string>
     <string name="about_ok">Close</string>
     <string name="about_rate_this_app">Rate this App</string>
     <string name="about_unable_to_rate">Unable to reach the Google Store</string>
