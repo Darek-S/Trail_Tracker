@@ -2,9 +2,20 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- When selected, use grey -->
     <item android:drawable="@mipmap/red_trail_on"
-        android:state_checked="false" />
-    <!-- When not selected, use white-->
+        android:state_checked="false">
+        <shape android:shape="rectangle"  >
+            <corners android:radius="2dp"/>
+        </shape>
+
+    </item>
+
+
     <item android:drawable="@mipmap/red_trail_off"
-        android:state_checked="true"/>
+        android:state_checked="true">
+        <shape android:shape="rectangle"  >
+            <corners android:radius="2dp"/>
+        </shape>
+
+    </item>
 
 </selector>
