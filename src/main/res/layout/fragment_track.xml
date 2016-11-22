@@ -370,7 +370,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -479,13 +480,41 @@
                 android:paddingTop="10dp">
 
                 <TextView
-                    android:text="Surface Type: (Not in this build)"
+                    android:text="Surface Type:"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView2"
                     android:textStyle="normal|bold"
                     android:textColor="@color/colorPrimaryDark" />
             </TableRow>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="0.1">
+
+                    <Switch
+                        android:text="Paved:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/surface"
+                        android:checked="true" />
+                </TableRow>
+
+            </TableLayout>
         </LinearLayout>
 
     </LinearLayout>
