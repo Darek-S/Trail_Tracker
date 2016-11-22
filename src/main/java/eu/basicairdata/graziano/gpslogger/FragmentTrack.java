@@ -25,6 +25,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -123,7 +124,7 @@ public class FragmentTrack extends Fragment {
         TLSpeedAvg = (TableLayout) view.findViewById(R.id.id_tableLayout_SpeedAvg) ;
         TLAltitudeGap = (TableLayout) view.findViewById(R.id.id_tableLayout_AltitudeGap) ;
         TLOverallDirection = (TableLayout) view.findViewById(R.id.id_tableLayout_OverallDirection) ;
-        ///////////////////////////////////////////////////// KOPLAC/////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////// SZABI EDIT/////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////BUTTONS////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////RedTrail///////////////////////////////////////////////////////////
         ToggleButton toggle1 = (ToggleButton) view.findViewById(R.id.redTrail);
@@ -186,8 +187,22 @@ public class FragmentTrack extends Fragment {
                 }
             }
         });
+        /////////////////////////////////////////////////////////////SURFACE///////////////////////////////////////////////////////////
+        Switch onOffSwitch = (Switch)  view.findViewById(R.id.surface);  ////////////Szabi Edit
+        onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+
+                }else{
+
+                }
+
+            }
+
+        });
+
         return view;
     }
 
