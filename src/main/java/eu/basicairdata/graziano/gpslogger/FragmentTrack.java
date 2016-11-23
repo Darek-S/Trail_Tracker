@@ -194,9 +194,9 @@ public class FragmentTrack extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-
+                    ((GPSApplication)getActivity().getApplication()).setSurface("PAVED");
                 }else{
-
+                    ((GPSApplication)getActivity().getApplication()).setSurface("UNPAVED");
                 }
 
             }

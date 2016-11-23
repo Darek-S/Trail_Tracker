@@ -262,7 +262,9 @@ public class Exporter extends Thread {
                                 GPXbw.write("   <color>");
                                 GPXbw.write(loc.getColor());
                                 GPXbw.write("</color>");
-
+                                GPXbw.write("   <surface>");
+                              GPXbw.write(loc.getSurface());
+                                GPXbw.write("</surface>");
                                 if (loc.getLocation().hasAltitude()) {
                                     GPXbw.write("<ele>");     // Elevation
                                     GPXbw.write(formattedAltitude);

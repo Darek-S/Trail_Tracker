@@ -38,7 +38,7 @@ public class LocationExtended {
     private int _NumberOfSatellites = NOT_AVAILABLE;
     //Darek edit
     private String _Color ="none";
-
+    private String _Surface ="none";////Szabi
     // Constructor
     public LocationExtended(Location location) {
         _Location = location;
@@ -58,8 +58,12 @@ public class LocationExtended {
     public void setColor(String color){
         _Color = color;
     }
+    public void setSurface(String surface){
+        _Surface = surface;}
 
     public String getColor(){ return _Color; }
+    public String getSurface(){ return _Surface; }
+
 
     public String getDescription() {
         return _Description;

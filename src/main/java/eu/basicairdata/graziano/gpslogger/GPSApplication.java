@@ -62,7 +62,9 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
 
     //Darek edit
     private String color="0000";
+    private String surface="0000";
     public void setColor(String c){color=c;}
+    public void setSurface(String c){surface=c;}
     public void setRed(Boolean set){
         String postfix=color.substring(1,4);
         if(set) {
@@ -606,6 +608,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
             LocationExtended eloc = new LocationExtended(loc);
             eloc.setNumberOfSatellites(getNumberOfSatellites());
             eloc.setColor(color);//Darek edit
+            eloc.setSurface(surface);
             boolean ForceRecord = false;
 
             gpsunavailablehandler.removeCallbacks(unavailr);                            // Cancel the previous unavail countdown handler
@@ -829,7 +832,8 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
                 if (asyncTODO.TaskType.equals("TASK_ADDLOCATION")) {
                     locationExtended = new LocationExtended(asyncTODO.location.getLocation());
                     locationExtended.setNumberOfSatellites(asyncTODO.location.getNumberOfSatellites());
-                    locationExtended.setColor(asyncTODO.location.getColor());
+                    locationExtended.setColor(asyncTODO.location.getColor()); ////DAREK
+                    locationExtended.setSurface(asyncTODO.location.getSurface());///Szabi
                     _currentLocationExtended = locationExtended;
                     EventBus.getDefault().post("UPDATE_FIX");
                     track.add(locationExtended);
@@ -854,6 +858,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
                     _currentLocationExtended = new LocationExtended(asyncTODO.location.getLocation());
                     _currentLocationExtended.setNumberOfSatellites(asyncTODO.location.getNumberOfSatellites());
                     _currentLocationExtended.setColor(asyncTODO.location.getColor());
+                    _currentLocationExtended.setSurface(asyncTODO.location.getSurface());
                     EventBus.getDefault().post("UPDATE_FIX");
                 }
 
