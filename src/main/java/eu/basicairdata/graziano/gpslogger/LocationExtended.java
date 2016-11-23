@@ -17,7 +17,7 @@
  */
 
 package eu.basicairdata.graziano.gpslogger;
-
+////Hello
 import android.location.Location;
 
 public class LocationExtended {
