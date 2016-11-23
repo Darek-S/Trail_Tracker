@@ -99,8 +99,8 @@ public class EGM96 {
     }
 
     public double getEGMCorrection(double Latitude, double Longitude) {
-    // This function calculates and return the EGM96 altitude correction value of the input coords, in m;
-    // Imput coords are: -90 < Latitude < 90; -180 < Longitude < 360 (android range -180 < Longitude < 180);
+        // This function calculates and return the EGM96 altitude correction value of the input coords, in m;
+        // Imput coords are: -90 < Latitude < 90; -180 < Longitude < 360 (android range -180 < Longitude < 180);
         if (isEGMGridLoaded) {
             double Lat = 90.0 - Latitude;
             double Lon = Longitude;

@@ -61,7 +61,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_LOCATION_NUMBEROFSATELLITES = "number_of_satellites";
     private static final String KEY_LOCATION_TYPE = "type";
     private static final String KEY_LOCATION_COLOR = "color"; //Color
-    private static final String KEY_LOCATION_SURFACE = "surface";
 
     // ---------------------------------------------------------------------------- Placemarks adds
     private static final String KEY_LOCATION_NAME = "name";
@@ -188,8 +187,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_LOCATION_TIME + " REAL,"                      // 9
                 + KEY_LOCATION_NUMBEROFSATELLITES + " INTEGER,"     // 10
                 + KEY_LOCATION_TYPE + " INTEGER,"             // 11
-                + KEY_LOCATION_COLOR + " TEXT,"
-                + KEY_LOCATION_SURFACE + "TEXT"+ ")"; //12 Darek edit
+                + KEY_LOCATION_COLOR + " TEXT"+ ")"; //12 Darek edit
         db.execSQL(CREATE_LOCATIONS_TABLE);
 
         String CREATE_PLACEMARKS_TABLE = "CREATE TABLE " + TABLE_PLACEMARKS + "("
@@ -311,7 +309,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         locvalues.put(KEY_LOCATION_NUMBEROFSATELLITES, location.getNumberOfSatellites());
         locvalues.put(KEY_LOCATION_TYPE, LOCATION_TYPE_LOCATION);
         locvalues.put(KEY_LOCATION_COLOR, location.getColor()); //Darek edit
-        locvalues.put(KEY_LOCATION_SURFACE, location.getSurface());
 
         ContentValues trkvalues = new ContentValues();
         trkvalues.put(KEY_TRACK_NAME, track.getName());
@@ -477,8 +474,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         KEY_LOCATION_BEARING,
                         KEY_LOCATION_TIME,
                         KEY_LOCATION_NUMBEROFSATELLITES,
-                        KEY_LOCATION_COLOR,
-                        KEY_LOCATION_SURFACE}, KEY_ID + "=?", //Darek edit
+                        KEY_LOCATION_COLOR}, KEY_ID + "=?", //Darek edit
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
@@ -495,7 +491,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             extdloc = new LocationExtended(lc);
             extdloc.setNumberOfSatellites(cursor.getInt(8));
             extdloc.setColor(cursor.getString(9)); //Darek edit
-            extdloc.setSurface(cursor.getString(10));
 
             cursor.close();
         }
@@ -529,7 +524,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             extdloc = new LocationExtended(lc);
             extdloc.setNumberOfSatellites(cursor.getInt(8));
             extdloc.setColor(cursor.getString(10)); //Darek edit
-            extdloc.setSurface(cursor.getString(11));
 
             cursor.close();
         }
@@ -569,7 +563,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     LocationExtended extdloc = new LocationExtended(lc);
                     extdloc.setNumberOfSatellites(cursor.getInt(10));
                     extdloc.setColor(cursor.getString(12));//Darek edit
-                    extdloc.setSurface(cursor.getString(13));
 
                     locationList.add(extdloc); // Add Location to list
                 } while (cursor.moveToNext());

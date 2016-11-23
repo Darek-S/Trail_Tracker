@@ -743,7 +743,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
         prefGPSdistance = Float.valueOf(preferences.getString("prefGPSdistance", "0"));
         prefEGM96AltitudeCorrection = preferences.getBoolean("prefEGM96AltitudeCorrection", false);
         prefAltitudeCorrection = Double.valueOf(preferences.getString("prefAltitudeCorrection", "0"));
-            Log.w("myApp", "[#] GPSApplication.java - Manual Correction set to " + prefAltitudeCorrection + " m");
+        Log.w("myApp", "[#] GPSApplication.java - Manual Correction set to " + prefAltitudeCorrection + " m");
         prefExportKML = preferences.getBoolean("prefExportKML", true);
         prefExportGPX = preferences.getBoolean("prefExportGPX", true);
         prefKMLAltitudeMode = Integer.valueOf(preferences.getString("prefKMLAltitudeMode", "0"));
