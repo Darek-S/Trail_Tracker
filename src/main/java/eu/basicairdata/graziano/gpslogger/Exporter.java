@@ -259,19 +259,19 @@ public class Exporter extends Thread {
                             if (ExportGPX) {
                                 GPXbw.write("  <trkpt lat=\"" + formattedLatitude + "\" lon=\"" + formattedLongitude + "\">");
                                 //Darek edit
-                                GPXbw.write("   <color>");
+                                GPXbw.write(" <color>");
                                 GPXbw.write(loc.getColor());
                                 GPXbw.write("</color>");
-                                GPXbw.write("   <surface>");
+                                GPXbw.write(" <surface>");
                               GPXbw.write(loc.getSurface());
                                 GPXbw.write("</surface>");
                                 if (loc.getLocation().hasAltitude()) {
-                                    GPXbw.write("<ele>");     // Elevation
+                                    GPXbw.write(" <ele>");     // Elevation
                                     GPXbw.write(formattedAltitude);
                                     GPXbw.write("</ele>");
                                 }
                                 if (loc.getLocation().hasSpeed()) {
-                                    GPXbw.write("<speed>");     // Speed
+                                    GPXbw.write(" <speed>");     // Speed
                                     GPXbw.write(String.format(Locale.US, "%.3f", loc.getLocation().getSpeed()));
                                     GPXbw.write("</speed>");
                                 }

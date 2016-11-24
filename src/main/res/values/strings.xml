@@ -39,6 +39,15 @@
     <string name="east">E</string>
     <string name="west">W</string>
 
+    <!-- TOURIST Routes SButtons  //Szabi-->
+    <string name="hiking">Hiking tourist routes:</string>
+    <string name="skiing">Skiing tourist routes:</string>
+    <string name="cycling">Cycling tourist routes:</string>
+    <string name="educational">Cycling tourist routes:</string>
+
+
+
+
 
     <!-- GPS Status messages -->
     <string name="gps_disabled">GPS disabled</string>

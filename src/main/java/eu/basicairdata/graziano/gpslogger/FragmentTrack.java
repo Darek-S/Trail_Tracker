@@ -125,83 +125,12 @@ public class FragmentTrack extends Fragment {
         TLAltitudeGap = (TableLayout) view.findViewById(R.id.id_tableLayout_AltitudeGap) ;
         TLOverallDirection = (TableLayout) view.findViewById(R.id.id_tableLayout_OverallDirection) ;
         ///////////////////////////////////////////////////// SZABI EDIT/////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////BUTTONS////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////RedTrail///////////////////////////////////////////////////////////
-        ToggleButton toggle1 = (ToggleButton) view.findViewById(R.id.redTrail);
-        toggle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setRed(true);//Darek edit
-                } else {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setRed(false);//Darek edit
-                }
-            }
-        });
-
-        /////////////////////////////////////////////////////////////BlueTrail///////////////////////////////////////////////////////////
-        ToggleButton toggle2 = (ToggleButton) view.findViewById(R.id.blueTrail);
-        toggle2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setBlue(true);//Darek edit
-                } else {
-
-
-                    ((GPSApplication)getActivity().getApplication()).setBlue(false);//Darek edit
-                }
-            }
-        });
-/////////////////////////////////////////////////////////////GreenTrail///////////////////////////////////////////////////////////
-        ToggleButton toggle3 = (ToggleButton) view.findViewById(R.id.greenTrail);
-        toggle3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-
-
-                    ((GPSApplication)getActivity().getApplication()).setGreen(true);//Darek edit
-                } else {
-
-
-                    ((GPSApplication)getActivity().getApplication()).setGreen(false);//Darek edit
-                }
-            }
-        });
-        /////////////////////////////////////////////////////////////YellowTrail///////////////////////////////////////////////////////////
-        ToggleButton toggle4 = (ToggleButton) view.findViewById(R.id.yellowTrail);
-        toggle4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-
-
-                    ((GPSApplication)getActivity().getApplication()).setYellow(true);//Darek edit
-                } else {
-
-
-                    ((GPSApplication)getActivity().getApplication()).setYellow(false);//Darek edit
-                }
-            }
-        });
-        /////////////////////////////////////////////////////////////SURFACE///////////////////////////////////////////////////////////
-        Switch onOffSwitch = (Switch)  view.findViewById(R.id.surface);  ////////////Szabi Edit
-        onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    ((GPSApplication)getActivity().getApplication()).setSurface("PAVED");
-                }else{
-                    ((GPSApplication)getActivity().getApplication()).setSurface("UNPAVED");
-                }
-
-            }
-
-        });
 
         return view;
     }

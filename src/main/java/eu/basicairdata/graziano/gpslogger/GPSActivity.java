@@ -232,7 +232,7 @@ public class GPSActivity extends AppCompatActivity {
 
     private void updateBottomSheetPosition() {
         activeTab = tabLayout.getSelectedTabPosition();
-        if (activeTab != 2) {
+        if (activeTab != 3) { //////////SZabi edit
             mBottomSheetBehavior.setPeekHeight(1);
             mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             //Log.w("myApp", "[#] GPSActivity.java - mBottomSheetBehavior.setPeekHeight(" + bottomSheet.getHeight() +");");
@@ -246,9 +246,10 @@ public class GPSActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragmentGPSFix(), getString(R.string.tab_gpsfix));
-        adapter.addFragment(new FragmentTrack(), getString(R.string.tab_track));
-        adapter.addFragment(new FragmentTracklist(), getString(R.string.tab_tracklist));
+        adapter.addFragment(new FragmentButton(), "RECORD TRAIL");     ///////////Szabi edit
+        adapter.addFragment(new FragmentGPSFix(), "GPS POSITION");
+        adapter.addFragment(new FragmentTrack(), "TRACK DETAILS");
+        adapter.addFragment(new FragmentTracklist(), "RECORDED TRACKS");
         viewPager.setAdapter(adapter);
     }
 
