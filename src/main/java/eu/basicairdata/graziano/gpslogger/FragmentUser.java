@@ -31,6 +31,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,16 +40,19 @@ import java.util.Arrays;
 
 
 public class FragmentUser extends DialogFragment {
-    EditText eText;
+
+
+
+
+
+
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.fragment_user, (ViewGroup) getView(), false);
+        final EditText input = (EditText) viewInflated.findViewById(R.id.username);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        // Get the layout inflater
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        builder.setView(viewInflated);
 
-        // Inflate and set the layout for the dialog
-        // Pass null as the parent view because its going in the dialog layout
-        builder.setView(inflater.inflate(R.layout.fragment_user, null))
 
 
 
@@ -61,20 +65,19 @@ public class FragmentUser extends DialogFragment {
 
 
 
-                .setPositiveButton("Save Changes", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Save Changes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                       eText = (EditText) getView().findViewById(R.id.username);
 
                      ///   EditText editText = (EditText) getView().findViewById(R.id.username);
 
-                        String str = eText.getText().toString();
+                        String str = input.getText().toString();
                         Toast.makeText(getActivity(), str,
                                 Toast.LENGTH_SHORT).show();
                     }
-                })
+                });
 
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         FragmentUser.this.getDialog().cancel();
                     }
