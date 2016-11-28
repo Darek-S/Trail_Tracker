@@ -41,6 +41,7 @@ public class FragmentButton extends Fragment {
     private String FOverallDirection = "";
 
 
+
     public FragmentButton() {
         // Required empty public constructor
 
@@ -54,6 +55,9 @@ public class FragmentButton extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recording_buttons, container, false);
 
@@ -68,6 +72,8 @@ public class FragmentButton extends Fragment {
 
 
                     ((GPSApplication)getActivity().getApplication()).setRed(true);//Darek edit
+
+
                 } else {
 
 
@@ -76,8 +82,9 @@ public class FragmentButton extends Fragment {
             }
         });
 
+
         /////////////////////////////////////////////////////////////BlueTrail///////////////////////////////////////////////////////////
-        ToggleButton toggle2 = (ToggleButton) view.findViewById(R.id.blueTrail);
+        final ToggleButton toggle2 = (ToggleButton) view.findViewById(R.id.blueTrail);
         toggle2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
@@ -122,6 +129,122 @@ public class FragmentButton extends Fragment {
                 }
             }
         });
+////////////////////////////////Skiing///////////////////////
+        ToggleButton toggle5 = (ToggleButton) view.findViewById(R.id.redSki);
+        toggle5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setSkiired(true);
+                } else {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setSkiired(false);
+                }
+            }
+        });
+        ToggleButton toggle6 = (ToggleButton) view.findViewById(R.id.blueSki);
+        toggle6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setSkiiblue(true);
+                } else {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setSkiiblue(false);
+                }
+            }
+        });
+        ToggleButton toggle7 = (ToggleButton) view.findViewById(R.id.greenSki);
+        toggle7.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setSkiigreen(true);
+                } else {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setSkiigreen(false);
+                }
+            }
+        });
+        ToggleButton toggle8 = (ToggleButton) view.findViewById(R.id.whiteSki);
+        toggle8.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setSkiiwhite(true);
+                } else {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setSkiiwhite(false);
+                }
+            }
+        });
+
+        //////////////////////////////////////////////////////////////////////////////////Bike///////////////////////
+
+        ToggleButton toggle9 = (ToggleButton) view.findViewById(R.id.redBike);
+        toggle9.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setCycling("red");
+                } else {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setCycling("0000");
+                }
+            }
+        });
+        ToggleButton toggle10 = (ToggleButton) view.findViewById(R.id.blueBike);
+        toggle10.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setCycling("blue");
+                } else {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setCycling("0000");
+                }
+            }
+        });
+        ToggleButton toggle11 = (ToggleButton) view.findViewById(R.id.greenBike);
+        toggle11.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setCycling("green");
+                } else {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setCycling("0000");
+                }
+            }
+        });
+        ToggleButton toggle12 = (ToggleButton) view.findViewById(R.id.whiteBike);
+        toggle12.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setCycling("white");
+                } else {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setCycling("0000");
+                }
+            }
+        });
         /////////////////////////////////////////////////////////////SURFACE///////////////////////////////////////////////////////////
         Switch onOffSwitch = (Switch)  view.findViewById(R.id.surface);  ////////////Szabi Edit
         onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -138,6 +261,7 @@ public class FragmentButton extends Fragment {
 
         });
 
+        toggle2.setChecked(true);
         return view;
     }
 

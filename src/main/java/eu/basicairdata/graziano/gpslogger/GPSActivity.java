@@ -226,13 +226,21 @@ public class GPSActivity extends AppCompatActivity {
             aboutDialog.show(fm, "");
             return true;
         }
+        if (id == R.id.action_user) {
+            // Show About Dialog
+            FragmentManager tm = getSupportFragmentManager();
+            FragmentUser aboutDialog = new FragmentUser();
+            aboutDialog.show(tm, "");
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
 
     private void updateBottomSheetPosition() {
         activeTab = tabLayout.getSelectedTabPosition();
-        if (activeTab != 3) { //////////SZabi edit
+        if (activeTab != 1 && activeTab != 2 && activeTab != 3 && activeTab != 4 ) { //////////SZabi edit
             mBottomSheetBehavior.setPeekHeight(1);
             mBottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             //Log.w("myApp", "[#] GPSActivity.java - mBottomSheetBehavior.setPeekHeight(" + bottomSheet.getHeight() +");");

@@ -265,6 +265,12 @@ public class Exporter extends Thread {
                                 GPXbw.write(" <surface>");
                               GPXbw.write(loc.getSurface());
                                 GPXbw.write("</surface>");
+                                GPXbw.write(" <Skiing>");
+                                GPXbw.write(loc.getSkiing());
+                                GPXbw.write("</Skiing>");
+                                GPXbw.write(" <Cycling>");
+                                GPXbw.write(loc.getCycling());
+                                GPXbw.write("</Cycling>");
                                 if (loc.getLocation().hasAltitude()) {
                                     GPXbw.write(" <ele>");     // Elevation
                                     GPXbw.write(formattedAltitude);

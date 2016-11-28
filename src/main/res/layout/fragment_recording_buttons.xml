@@ -81,6 +81,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/red_trail"
                         android:textOn=""
+                        android:checked="false"
                         android:textOff=""/>
 
                 </TableRow>
@@ -103,6 +104,7 @@
                         android:id="@+id/blueTrail"
                         android:layout_weight="1"
                         android:background="@drawable/blue_trail"
+                        android:checked="false"
                         android:textOn=""
                         android:textOff=""/>
                 </TableRow>
@@ -129,6 +131,7 @@
                         android:background="@drawable/yellow_trail"
                         android:textOn=""
                         android:textOff=""/>
+
                 </TableRow>
 
             </TableLayout>
@@ -148,6 +151,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/greenTrail"
                         android:layout_weight="1"
+                        android:checked="false"
                         android:background="@drawable/green_trail"
                         android:textOn=""
                         android:textOff=""

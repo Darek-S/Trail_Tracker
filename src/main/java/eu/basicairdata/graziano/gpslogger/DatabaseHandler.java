@@ -62,6 +62,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_LOCATION_TYPE = "type";
     private static final String KEY_LOCATION_COLOR = "color"; //Color
     private static final String KEY_LOCATION_SURFACE = "surface";//Surface
+    private static final String KEY_LOCATION_SKIING= "skiing";//SZABI
+    private static final String KEY_LOCATION_CYCLING= "cycling";//SZABI
     // ---------------------------------------------------------------------------- Placemarks adds
     private static final String KEY_LOCATION_NAME = "name";
 
@@ -188,7 +190,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_LOCATION_NUMBEROFSATELLITES + " INTEGER,"     // 10
                 + KEY_LOCATION_TYPE + " INTEGER,"             // 11
                 + KEY_LOCATION_COLOR + " TEXT," ////12
-                + KEY_LOCATION_SURFACE + " TEXT"+ ")"; /// SURFACE////13
+                + KEY_LOCATION_SURFACE + " TEXT,"////13
+                + KEY_LOCATION_SKIING + " TEXT,"////14
+                + KEY_LOCATION_CYCLING + " TEXT" + ")"; ////15//SZABI
 
         //12 Darek edit
         db.execSQL(CREATE_LOCATIONS_TABLE);
@@ -313,7 +317,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         locvalues.put(KEY_LOCATION_TYPE, LOCATION_TYPE_LOCATION);
         locvalues.put(KEY_LOCATION_COLOR, location.getColor()); //Darek edit
         locvalues.put(KEY_LOCATION_SURFACE, location.getSurface()); /// SZABI
-
+        locvalues.put(KEY_LOCATION_SKIING, location.getSkiing());//SZABI
+        locvalues.put(KEY_LOCATION_CYCLING, location.getCycling());//SZABI
         ContentValues trkvalues = new ContentValues();
         trkvalues.put(KEY_TRACK_NAME, track.getName());
         trkvalues.put(KEY_TRACK_FROM, "");
@@ -479,7 +484,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         KEY_LOCATION_TIME,
                         KEY_LOCATION_NUMBEROFSATELLITES,
                         KEY_LOCATION_COLOR,
-                        KEY_LOCATION_SURFACE}, KEY_ID + "=?", //SZABI
+                        KEY_LOCATION_SURFACE,//SZABI
+                        KEY_LOCATION_SKIING,
+                        KEY_LOCATION_CYCLING}, KEY_ID + "=?", //SZABI
 
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null) {
@@ -497,7 +504,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             extdloc = new LocationExtended(lc);
             extdloc.setNumberOfSatellites(cursor.getInt(8));
             extdloc.setColor(cursor.getString(9)); //Darek edit
-            extdloc.setSurface(cursor.getString(10));
+            extdloc.setSurface(cursor.getString(10)); //Szabi edit
+            extdloc.setSkiing(cursor.getString(11));
+            extdloc.setCycling(cursor.getString(12));//Szabi edit
             cursor.close();
         }
         return extdloc != null ? extdloc : null;
@@ -531,6 +540,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             extdloc.setNumberOfSatellites(cursor.getInt(8));
             extdloc.setColor(cursor.getString(9)); //Darek edit
             extdloc.setSurface(cursor.getString(10)); //Szabi
+            extdloc.setSkiing(cursor.getString(11));
+            extdloc.setCycling(cursor.getString(12));//Szabi edit
             cursor.close();
         }
         return extdloc != null ? extdloc : null;
@@ -569,7 +580,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     LocationExtended extdloc = new LocationExtended(lc);
                     extdloc.setNumberOfSatellites(cursor.getInt(10));
                     extdloc.setColor(cursor.getString(12));//Darek edit
-                    extdloc.setSurface(cursor.getString(13));///SZABi
+                    extdloc.setSurface(cursor.getString(13));
+                    extdloc.setSkiing(cursor.getString(14));
+                    extdloc.setCycling(cursor.getString(15));///SZABi
                     locationList.add(extdloc); // Add Location to list
                 } while (cursor.moveToNext());
             }

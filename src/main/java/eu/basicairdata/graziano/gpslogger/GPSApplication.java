@@ -63,8 +63,14 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
     //Darek edit
     private String color="0000";
     private String surface="0000";
+    private String skiing="0000";
+    private String cycling="0000";
+
     public void setColor(String c){color=c;}
-    public void setSurface(String c){surface=c;}
+    public void setSurface(String d){surface=d;}
+    public void setSkiing(String f){skiing=f;}
+    public void setCycling(String g){cycling=g;}
+
     public void setRed(Boolean set){
         String postfix=color.substring(1,4);
         if(set) {
@@ -104,6 +110,48 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
             color = prefix +"0";
         }
     }
+    public void setSkiired(Boolean set){
+        String postfix=skiing.substring(1,4);
+        if(set) {
+            skiing = "R" + postfix;
+        }
+        else{
+            skiing = "0" + postfix;
+        }
+    }
+
+    public void setSkiiblue(Boolean set){
+        String prefix=skiing.substring(0,1);
+        String postfix=skiing.substring(2,4);
+        if(set) {
+            skiing = prefix +"B" + postfix;
+        }
+        else{
+            skiing = prefix +"0" + postfix;
+        }
+    }
+
+    public void setSkiigreen(Boolean set){
+        String prefix=skiing.substring(0,2);
+        String postfix=skiing.substring(3,4);
+        if(set) {
+            skiing = prefix +"G" + postfix;
+        }
+        else{
+            skiing = prefix +"0" + postfix;
+        }
+    }
+    public void setSkiiwhite(Boolean set){
+        String prefix=skiing .substring(0,3);
+
+        if(set) {
+            skiing  = prefix +"W";
+        }
+        else{
+            skiing  = prefix +"0";
+        }
+    }
+
 
 
     public static final float M_TO_FT = 3.280839895f;
@@ -609,6 +657,8 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
             eloc.setNumberOfSatellites(getNumberOfSatellites());
             eloc.setColor(color);//Darek edit
             eloc.setSurface(surface);
+            eloc.setSkiing(skiing);
+            eloc.setCycling(cycling);
             boolean ForceRecord = false;
 
             gpsunavailablehandler.removeCallbacks(unavailr);                            // Cancel the previous unavail countdown handler
@@ -832,8 +882,11 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
                 if (asyncTODO.TaskType.equals("TASK_ADDLOCATION")) {
                     locationExtended = new LocationExtended(asyncTODO.location.getLocation());
                     locationExtended.setNumberOfSatellites(asyncTODO.location.getNumberOfSatellites());
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     locationExtended.setColor(asyncTODO.location.getColor()); ////DAREK
                     locationExtended.setSurface(asyncTODO.location.getSurface());///Szabi
+                    locationExtended.setSkiing(asyncTODO.location.getSkiing());
+                    locationExtended.setCycling(asyncTODO.location.getCycling());
                     _currentLocationExtended = locationExtended;
                     EventBus.getDefault().post("UPDATE_FIX");
                     track.add(locationExtended);
@@ -857,8 +910,11 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
                 if (asyncTODO.TaskType.equals("TASK_UPDATEFIX")) {
                     _currentLocationExtended = new LocationExtended(asyncTODO.location.getLocation());
                     _currentLocationExtended.setNumberOfSatellites(asyncTODO.location.getNumberOfSatellites());
+                    //////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     _currentLocationExtended.setColor(asyncTODO.location.getColor());
                     _currentLocationExtended.setSurface(asyncTODO.location.getSurface());
+                    _currentLocationExtended.setSkiing(asyncTODO.location.getSkiing());
+                    _currentLocationExtended.setCycling(asyncTODO.location.getCycling());
                     EventBus.getDefault().post("UPDATE_FIX");
                 }
 

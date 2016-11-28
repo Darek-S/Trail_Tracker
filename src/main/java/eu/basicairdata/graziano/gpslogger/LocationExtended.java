@@ -39,6 +39,8 @@ public class LocationExtended {
     //Darek edit
     private String _Color ="none";
     private String _Surface ="none";////Szabi
+    private String _Skiing ="none";
+    private String _Cycling ="none";////Szabi
     // Constructor
     public LocationExtended(Location location) {
         _Location = location;
@@ -60,10 +62,16 @@ public class LocationExtended {
     }
     public void setSurface(String surface){
         _Surface = surface;}
+    public void setSkiing(String skiing){
+        _Skiing = skiing;}
+    public void setCycling(String cycling){
+        _Cycling = cycling;}
+
 
     public String getColor(){ return _Color; }
     public String getSurface(){ return _Surface; }
-
+    public String getSkiing(){ return _Skiing; }
+    public String getCycling(){ return _Cycling; }
 
     public String getDescription() {
         return _Description;
