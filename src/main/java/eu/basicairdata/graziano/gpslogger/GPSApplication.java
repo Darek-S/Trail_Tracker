@@ -159,9 +159,47 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
             skiing  = prefix +"0";
         }
     }
+    public void setbikred(Boolean set){
+        String postfix=cycling.substring(1,4);
+        if(set) {
+            cycling = "R" + postfix;
+        }
+        else{
+            cycling= "0" + postfix;
+        }
+    }
 
+    public void setbikeblue(Boolean set){
+        String prefix=cycling.substring(0,1);
+        String postfix=cycling.substring(2,4);
+        if(set) {
+            cycling = prefix +"B" + postfix;
+        }
+        else{
+           cycling = prefix +"0" + postfix;
+        }
+    }
+    public void setbikegreen(Boolean set){
+        String prefix=cycling.substring(0,2);
+        String postfix=cycling.substring(3,4);
+        if(set) {
+            cycling = prefix +"G" + postfix;
+        }
+        else{
+            cycling = prefix +"0" + postfix;
+        }
+    }
 
+    public void setbikewhite(Boolean set){
+        String prefix=cycling .substring(0,3);
 
+        if(set) {
+           cycling  = prefix +"W";
+        }
+        else{
+            cycling = prefix +"0";
+        }
+    }
     public static final float M_TO_FT = 3.280839895f;
 
     public static final int UM_METRIC_MS = 0;

@@ -195,11 +195,11 @@ public class FragmentButton extends Fragment {
                 if (isChecked) {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setCycling("red");
+                    ((GPSApplication)getActivity().getApplication()).setbikred(true);
                 } else {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setCycling("0000");
+                    ((GPSApplication)getActivity().getApplication()).setbikred(false);
                 }
             }
         });
@@ -209,11 +209,11 @@ public class FragmentButton extends Fragment {
                 if (isChecked) {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setCycling("blue");
+                    ((GPSApplication)getActivity().getApplication()).setbikeblue(true);
                 } else {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setCycling("0000");
+                    ((GPSApplication)getActivity().getApplication()).setbikeblue(false);
                 }
             }
         });
@@ -223,11 +223,11 @@ public class FragmentButton extends Fragment {
                 if (isChecked) {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setCycling("green");
+                    ((GPSApplication)getActivity().getApplication()).setbikegreen(true);
                 } else {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setCycling("0000");
+                    ((GPSApplication)getActivity().getApplication()).setbikegreen(false);
                 }
             }
         });
@@ -237,11 +237,11 @@ public class FragmentButton extends Fragment {
                 if (isChecked) {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setCycling("white");
+                    ((GPSApplication)getActivity().getApplication()).setbikewhite(true);
                 } else {
 
 
-                    ((GPSApplication)getActivity().getApplication()).setCycling("0000");
+                    ((GPSApplication)getActivity().getApplication()).setbikewhite(false);
                 }
             }
         });
@@ -261,7 +261,7 @@ public class FragmentButton extends Fragment {
 
         });
 
-        toggle2.setChecked(true);
+
         return view;
     }
 

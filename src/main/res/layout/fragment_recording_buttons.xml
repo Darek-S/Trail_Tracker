@@ -56,7 +56,6 @@
                     android:textColor="@color/colorPrimaryDark" />
             </TableRow>
         </LinearLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
@@ -81,7 +80,6 @@
                         android:layout_weight="1"
                         android:background="@drawable/red_trail"
                         android:textOn=""
-                        android:checked="false"
                         android:textOff=""/>
 
                 </TableRow>
@@ -104,7 +102,6 @@
                         android:id="@+id/blueTrail"
                         android:layout_weight="1"
                         android:background="@drawable/blue_trail"
-                        android:checked="false"
                         android:textOn=""
                         android:textOff=""/>
                 </TableRow>
@@ -123,7 +120,7 @@
 
                     <ToggleButton
                         android:text="ToggleButton"
-                        android:id="@+id/yellowTrail"
+                        android:id="@+id/greenTrail"
                         android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -131,7 +128,6 @@
                         android:background="@drawable/yellow_trail"
                         android:textOn=""
                         android:textOff=""/>
-
                 </TableRow>
 
             </TableLayout>
@@ -149,9 +145,8 @@
                         android:text="ToggleButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/greenTrail"
+                        android:id="@+id/yellowTrail"
                         android:layout_weight="1"
-                        android:checked="false"
                         android:background="@drawable/green_trail"
                         android:textOn=""
                         android:textOff=""
@@ -159,7 +154,9 @@
                 </TableRow>
 
             </TableLayout>
+
         </LinearLayout>
+
 
         <LinearLayout
             android:orientation="horizontal"
