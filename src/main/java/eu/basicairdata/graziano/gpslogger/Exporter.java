@@ -60,10 +60,12 @@ public class Exporter extends Thread {
     double AltitudeManualCorrection = 0;
     boolean EGMAltitudeCorrection = false;
     int getPrefKMLAltitudeMode = 0;
+    String login;
+    String email;
 
     String versionName = BuildConfig.VERSION_NAME;
 
-    public Exporter(long ID, boolean ExportKML, boolean ExportGPX, String SaveIntoFolder) {
+    public Exporter(long ID, boolean ExportKML, boolean ExportGPX, String SaveIntoFolder, String logn, String email) {
         track = GPSApplication.getInstance().GPSDataBase.getTrack(ID);
         AltitudeManualCorrection = GPSApplication.getInstance().getPrefAltitudeCorrection();
         EGMAltitudeCorrection = GPSApplication.getInstance().getPrefEGM96AltitudeCorrection();
@@ -72,6 +74,8 @@ public class Exporter extends Thread {
         this.ExportGPX = ExportGPX;
         this.ExportKML = ExportKML;
         this.SaveIntoFolder = SaveIntoFolder;
+        this.login = logn;
+        this.email=email;
     }
 
     public void run() {
@@ -224,6 +228,9 @@ public class Exporter extends Thread {
                 }
                 if (ExportGPX) {
                     GPXbw.write("<trk>" + newLine);
+                    //Darek edit
+                    GPXbw.write(" <user>" + login + "</user>" + newLine);
+                    GPXbw.write(" <email>" + email + "</email>" + newLine);
                     GPXbw.write(" <name>" + track.getName() + "</name>" + newLine);
                     GPXbw.write(" <desc>GPS Logger: " + track.getName() + "</desc>" + newLine);
                     GPXbw.write(" <trkseg>" + newLine);

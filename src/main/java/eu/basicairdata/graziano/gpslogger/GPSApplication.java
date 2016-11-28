@@ -66,6 +66,14 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
     private String skiing="0000";
     private String cycling="0000";
 
+    public void saveName(String str, String email){
+        SharedPreferences saved = getSharedPreferences("login",0);
+        //saved.getString("name","");
+        SharedPreferences.Editor editor=saved.edit();
+        editor.putString("name", str);
+        editor.putString("email", email);
+        editor.commit();
+    };
     public void setColor(String c){color=c;}
     public void setSurface(String d){surface=d;}
     public void setSkiing(String f){skiing=f;}
@@ -533,19 +541,28 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
                 }
             }
         }
+        //Darek edit
+        SharedPreferences saved = getSharedPreferences("login",0);
+        String namestr="";
+        if(saved.contains("name"))
+            namestr=saved.getString("name","");
+        String email="";
+        if(saved.contains("email"))
+            email=saved.getString("email","");
+
         if (msg.contains("EXPORT_TRACK")) {
             long trackid = Long.valueOf(msg.split(" ")[1]);
-            Ex = new Exporter(trackid, prefExportKML, prefExportGPX, Environment.getExternalStorageDirectory() + "/GPSLogger");
+            Ex = new Exporter(trackid, prefExportKML, prefExportGPX, Environment.getExternalStorageDirectory() + "/GPSLogger",namestr,email );
             Ex.start();
         }
         if (msg.contains("SHARE_TRACK")) {
             setShare(Long.valueOf(msg.split(" ")[1]));
-            Ex = new Exporter(Share, prefExportKML, prefExportGPX, Environment.getExternalStorageDirectory() + "/GPSLogger/AppData");
+            Ex = new Exporter(Share, prefExportKML, prefExportGPX, Environment.getExternalStorageDirectory() + "/GPSLogger/AppData", namestr,email);
             Ex.start();
         }
         if (msg.contains("VIEW_TRACK")) {
             setOpenInGoogleEarth(Long.valueOf(msg.split(" ")[1]));
-            Ex = new Exporter(OpenInGoogleEarth, true, false, Environment.getExternalStorageDirectory() + "/GPSLogger/AppData");
+            Ex = new Exporter(OpenInGoogleEarth, true, false, Environment.getExternalStorageDirectory() + "/GPSLogger/AppData", namestr,email);
             Ex.start();
         }
         if (msg.equals("NEW_TRACK")) {

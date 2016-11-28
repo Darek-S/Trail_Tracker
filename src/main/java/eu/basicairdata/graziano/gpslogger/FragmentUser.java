@@ -23,6 +23,7 @@ import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -49,7 +50,9 @@ public class FragmentUser extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View viewInflated = LayoutInflater.from(getContext()).inflate(R.layout.fragment_user, (ViewGroup) getView(), false);
+        final EditText email = (EditText) viewInflated.findViewById(R.id.email);
         final EditText input = (EditText) viewInflated.findViewById(R.id.username);
+
 
         builder.setView(viewInflated);
 
@@ -72,8 +75,15 @@ public class FragmentUser extends DialogFragment {
                      ///   EditText editText = (EditText) getView().findViewById(R.id.username);
 
                         String str = input.getText().toString();
+
+                        String emailstr = email.getText().toString();
+
                         Toast.makeText(getActivity(), str,
                                 Toast.LENGTH_SHORT).show();
+
+                        ((GPSApplication)getActivity().getApplication()).saveName(str,emailstr);
+
+
                     }
                 });
 
