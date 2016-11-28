@@ -56,7 +56,11 @@ public class FragmentUser extends DialogFragment {
 
         builder.setView(viewInflated);
 
-
+        SharedPreferences saved=getActivity().getSharedPreferences("login",0);
+        if(saved.contains("name"))
+            input.setText(saved.getString("name",""));
+        if(saved.contains("email"))
+            email.setText(saved.getString("email",""));
 
 
 
