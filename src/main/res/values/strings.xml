@@ -40,12 +40,11 @@
     <string name="west">W</string>
 
     <!-- TOURIST Routes SButtons  //Szabi-->
-    <string name="hiking">Hiking tourist routes:</string>
-    <string name="skiing">Skiing tourist routes:</string>
-    <string name="cycling">Cycling tourist routes:</string>
-    <string name="educational">Cycling tourist routes:</string>
-
-
+    <string name="hiking">Hiking route</string>
+    <string name="skiing">Skiing route</string>
+    <string name="cycling">Cycling route</string>
+    <string name="educational">Cycling route</string>
+    <string name="surface">Surface</string>
 
 
 

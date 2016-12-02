@@ -19,24 +19,30 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#2196F3</color>
-    <color name="colorPrimaryDark">#2196F3</color>
-    <color name="colorPrimaryLight">#2196F3</color>
-    <color name="textColorPrimary">#2196F3</color>
-    <color name="textColorSecondary">#888888</color>
-    <color name="colorBackground">#111111</color>
-    <color name="colorTrackBackground">#282828</color>
-
-    <color name="colorRoundedCornerDarktop">#202020</color>
-    <color name="colorRoundedCornerDarkBottom">#161616</color>
+    <color name="colorPrimary">#795548</color>
+    <color name="colorPrimaryDark">#643827</color>
+    <color name="colorPrimaryLight">#efede5
+    </color>
+    <color name="textColorPrimary">#efede5</color>
+    <color name="textColorSecondary">#643827</color>
+    <color name="colorBackground">#efede5</color>
+    <color name="colorrecordon">#1bdc5f</color>
+    <color name="colorrecordoff">#e92f2f</color>
+    <color name="colorTrackBackground">#efede5</color>
+    <color name="colorRoundedCornerDarktop">#643827</color>
+    <color name="colorRoundedCornerDarkBottom">#795548</color>
     <color name="colorRoundedCornerDarkBorder">#8f8f8f</color>
 
-    <color name="colorCardBackground">#3b3b3b</color>
-    <color name="colorCardTrackBackground">#2f2f2f</color>
-    <color name="colorThumbnailLineColor">#d7d7d7</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="about">#643827</color>
+
+    <color name="colorCardBackground">#795548</color>
+    <color name="colorCardTrackBackground">#643827</color>
+    <color name="colorThumbnailLineColor">#643827</color>
     <color name="colorThumbnailLineBackground">#000000</color>
 
-    <color name="colorAccent">#2196F3</color>
-    <color name="preference_accent">#2196F3</color>
-    <color name="preference_fallback_accent_color">#2196F3</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="preference_accent">#FF9800</color>
+    <color name="preference_fallback_accent_color">#795548</color>
 </resources>

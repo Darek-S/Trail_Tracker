@@ -70,10 +70,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/trackpoints"
+            android:text="Click to Start Recording"
+
             android:id="@+id/id_textView_GeoPointsLabel"
-            android:textSize="13sp"
-            android:gravity="center_horizontal" />
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:fontFamily="sans-serif" />
 
         <TextView
             android:layout_width="wrap_content"

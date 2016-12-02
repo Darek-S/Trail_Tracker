@@ -61,7 +61,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class GPSApplication extends Application implements GpsStatus.Listener, LocationListener {
 
     //Darek edit
-    private String color="0000";
+    private String color="00000";
     private String surface="0000";
     private String skiing="0000";
     private String cycling="0000";
@@ -80,7 +80,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
     public void setCycling(String g){cycling=g;}
 
     public void setRed(Boolean set){
-        String postfix=color.substring(1,4);
+        String postfix=color.substring(1,5);
         if(set) {
             color = "R" + postfix;
         }
@@ -90,7 +90,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
     }
     public void setBlue(Boolean set){
         String prefix=color.substring(0,1);
-        String postfix=color.substring(2,4);
+        String postfix=color.substring(2,5);
         if(set) {
             color = prefix +"B" + postfix;
         }
@@ -100,7 +100,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
     }
     public void setGreen(Boolean set){
         String prefix=color.substring(0,2);
-        String postfix=color.substring(3,4);
+        String postfix=color.substring(3,5);
         if(set) {
             color = prefix +"G" + postfix;
         }
@@ -110,9 +110,19 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
     }
     public void setYellow(Boolean set){
         String prefix=color.substring(0,3);
+        String postfix=color.substring(4,5);
+        if(set) {
+            color = prefix +"Y" + postfix;
+        }
+        else{
+            color = prefix +"0" + postfix;
+        }
+    }
+    public void setEducational(Boolean set){
+        String prefix=color.substring(0,4);
 
         if(set) {
-            color = prefix +"Y";
+            color = prefix +"E";
         }
         else{
             color = prefix +"0";

@@ -25,6 +25,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -58,14 +59,17 @@ public class FragmentRecordingControls extends Fragment{
             @Override
             public void onClick(View v) {
                 ontoggleRecordGeoPoint(v);
+
             }
         });
 
         tableLayoutPlacemarks = (TableLayout) view.findViewById(R.id.id_TableLayout_Placemarks);
+
         tableLayoutPlacemarks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onPlacemarkRequest(v);
+
             }
         });
 
@@ -85,7 +89,12 @@ public class FragmentRecordingControls extends Fragment{
     @Override
     public void onPause() {
         EventBus.getDefault().unregister(this);
-        super.onPause();
+
+
+
+
+
+            super.onPause();
     }
 
     public void ontoggleRecordGeoPoint(View view) {
@@ -93,8 +102,12 @@ public class FragmentRecordingControls extends Fragment{
             GPSApplication gpsApplication = GPSApplication.getInstance();
             final Boolean grs = gpsApplication.getRecording();
             boolean newRecordingState = !grs;
+            TextView t = (TextView) view.findViewById(R.id.id_textView_GeoPointsLabel);
+            t.setText(newRecordingState? "Click to Stop Recording": "Click to Start Recording"); ////szabi edit
+
             gpsApplication.setRecording(newRecordingState);
-            tableLayoutGeoPoints.setBackgroundColor(newRecordingState ? getResources().getColor(R.color.colorPrimary) : getResources().getColor(R.color.colorTrackBackground));
+            tableLayoutGeoPoints.setBackgroundColor(newRecordingState ? getResources().getColor(R.color.colorrecordoff) : getResources().getColor(R.color.colorrecordon));
+
         }
     }
 
@@ -132,7 +145,7 @@ public class FragmentRecordingControls extends Fragment{
                 if (TVPlacemarks != null)
                     TVPlacemarks.setText(String.valueOf(track.getNumberOfPlacemarks()));
                 if (tableLayoutGeoPoints != null)
-                    tableLayoutGeoPoints.setBackgroundColor(grs ? getResources().getColor(R.color.colorPrimary) : getResources().getColor(R.color.colorTrackBackground));
+                    tableLayoutGeoPoints.setBackgroundColor(grs ? getResources().getColor(R.color.colorrecordoff) : getResources().getColor(R.color.colorrecordon));//// Szabi edit
                 if (tableLayoutPlacemarks != null)
                     tableLayoutPlacemarks.setBackgroundColor(pr ? getResources().getColor(R.color.colorPrimary) : getResources().getColor(R.color.colorTrackBackground));
             }

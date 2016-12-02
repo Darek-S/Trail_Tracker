@@ -38,6 +38,7 @@
         android:id="@+id/id_textView_TracklistEmpty"
         android:gravity="center"
         android:paddingTop="30dp"
-        android:text="@string/tracklist_empty" />
+        android:text="@string/tracklist_empty"
+        android:textColor="#643827" />
 
 </FrameLayout>

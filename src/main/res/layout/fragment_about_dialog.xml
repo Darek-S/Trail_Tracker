@@ -29,7 +29,8 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:paddingTop="18dp"
-        android:paddingBottom="10dp">
+        android:paddingBottom="10dp"
+        android:background="@color/colorBackground">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -44,7 +45,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/app_name"
             android:id="@+id/id_about_textView_AppName"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/about" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,7 +72,8 @@
                 android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:autoLink="web"
-                android:linksClickable="true" />
+                android:linksClickable="true"
+                android:textColor="@color/about" />
         </ScrollView>
 
     </LinearLayout>

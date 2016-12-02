@@ -356,6 +356,7 @@
         android:id="@+id/id_textView_TrackStatus"
         android:paddingTop="30dp"
         android:text="@string/track_empty"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textColor="#643827" />
 
 </FrameLayout>

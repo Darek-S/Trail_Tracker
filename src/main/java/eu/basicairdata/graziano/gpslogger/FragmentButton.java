@@ -129,6 +129,22 @@ public class FragmentButton extends Fragment {
                 }
             }
         });
+
+        ToggleButton toggle99 = (ToggleButton) view.findViewById(R.id.educational);
+        toggle99.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setEducational(true);//Darek edit
+                } else {
+
+
+                    ((GPSApplication)getActivity().getApplication()).setEducational(false);//Darek edit
+                }
+            }
+        });
+
 ////////////////////////////////Skiing///////////////////////
         ToggleButton toggle5 = (ToggleButton) view.findViewById(R.id.redSki);
         toggle5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

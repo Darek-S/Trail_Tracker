@@ -343,6 +343,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/id_textView_GPSFixStatus"
         android:paddingTop="30dp"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textColor="#643827" />
 
 </FrameLayout>

@@ -52,10 +52,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView1"
-                    android:textStyle="normal|bold"
-                    android:textColor="@color/colorPrimaryDark" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:paddingLeft="20dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="21sp"
+                    android:textAllCaps="false" />
+
             </TableRow>
         </LinearLayout>
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
@@ -74,13 +79,13 @@
 
                     <ToggleButton
                         android:text="ToggleButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/redTrail"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:background="@drawable/red_trail"
                         android:textOn=""
-                        android:textOff=""/>
+                        android:textOff=""
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content" />
 
                 </TableRow>
 
@@ -157,11 +162,34 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ToggleButton
+                    android:text="ToggleButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/educational"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/educational_trail" />
+            </TableRow>
+        </LinearLayout>
+
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp">
 
             <TableRow
                 android:layout_width="wrap_content"
@@ -174,8 +202,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView3"
-                    android:textStyle="normal|bold"
-                    android:textColor="@color/colorPrimaryDark" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:paddingLeft="20dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="21sp"
+                    android:textAllCaps="false" />
             </TableRow>
         </LinearLayout>
 
@@ -203,7 +234,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/redSki"
                         android:layout_weight="1"
-                        android:background="@drawable/red_trail"
+                        android:background="@drawable/red_skii"
                         android:textOn=""
                         android:textOff=""/>
 
@@ -226,7 +257,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/blueSki"
                         android:layout_weight="1"
-                        android:background="@drawable/blue_trail"
+                        android:background="@drawable/blue_skii"
                         android:textOn=""
                         android:textOff=""/>
                 </TableRow>
@@ -250,7 +281,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="false"
-                        android:background="@drawable/yellow_trail"
+                        android:background="@drawable/green_skii"
                         android:textOn=""
                         android:textOff=""/>
                 </TableRow>
@@ -272,7 +303,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/whiteSki"
                         android:layout_weight="1"
-                        android:background="@drawable/green_trail"
+                        android:background="@drawable/white"
                         android:textOn=""
                         android:textOff=""
                         />
@@ -298,8 +329,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView4"
-                    android:textStyle="normal|bold"
-                    android:textColor="@color/colorPrimaryDark" />
+                    android:textColor="@color/colorPrimaryDark"
+                    android:paddingLeft="20dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textAllCaps="false"
+                    android:textSize="21sp" />
             </TableRow>
         </LinearLayout>
 
@@ -325,7 +359,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/redBike"
                         android:layout_weight="1"
-                        android:background="@drawable/red_trail"
+                        android:background="@drawable/red_bike"
                         android:textOn=""
                         android:textOff=""/>
 
@@ -348,7 +382,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/blueBike"
                         android:layout_weight="1"
-                        android:background="@drawable/blue_trail"
+                        android:background="@drawable/blue_bike"
                         android:textOn=""
                         android:textOff=""/>
                 </TableRow>
@@ -372,7 +406,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="false"
-                        android:background="@drawable/yellow_trail"
+                        android:background="@drawable/green_bike"
                         android:textOn=""
                         android:textOff=""/>
                 </TableRow>
@@ -394,7 +428,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/whiteBike"
                         android:layout_weight="1"
-                        android:background="@drawable/green_trail"
+                        android:background="@drawable/white_bike"
                         android:textOn=""
                         android:textOff=""
                         />
@@ -406,30 +440,12 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
-
-                <TextView
-                    android:text="Surface:"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView2"
-                    android:textStyle="normal|bold"
-                    android:textColor="@color/colorPrimaryDark" />
-            </TableRow>
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@color/white">
 
             <TableLayout
                 android:layout_width="wrap_content"
@@ -443,11 +459,18 @@
                     android:layout_weight="0.1">
 
                     <Switch
-                        android:text="Paved:"
+                        android:text="Paved?"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/surface"
-                        android:checked="true" />
+                        android:checked="true"
+                        android:thumb="@drawable/switchselector"
+                        android:track="@drawable/customtrack"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="21sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textAllCaps="false"
+                        android:switchMinWidth="50dp" />
                 </TableRow>
 
             </TableLayout>
