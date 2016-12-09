@@ -22,7 +22,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="eu.basicairdata.graziano.gpslogger.FragmentRecordingControls"
+    tools:context="eu.koplac.cz.trailtracker.FragmentRecordingControls"
     android:id="@+id/id_fragmentrecordingcontrols"
     android:background="@color/colorTrackBackground"
     android:orientation="horizontal"
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/trackpoints"
+            android:text="Click to Start Recording"
             android:id="@+id/id_textView_GeoPointsLabel"
             android:textSize="13sp"
             android:gravity="center_horizontal" />

@@ -22,7 +22,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/id_main_menu"
-    tools:context="eu.basicairdata.graziano.gpslogger.GPSActivity">
+    tools:context="eu.koplac.cz.trailtracker.GPSActivity">
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
@@ -36,7 +36,13 @@
     <item
         android:id="@+id/action_user"
         android:orderInCategory="102"
-        android:title="User Name"
+        android:title="@string/user_name"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_report"
+        android:orderInCategory="102"
+        android:title="Report Issue"
         app:showAsAction="never" />
 
     <item

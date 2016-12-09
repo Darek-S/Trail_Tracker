@@ -38,14 +38,16 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp">
 
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
 
                 <TextView
                     android:text="@string/hiking"
@@ -55,7 +57,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:paddingLeft="20dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:textAllCaps="false" />
 
             </TableRow>
@@ -187,15 +189,16 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="0dp">
+            android:paddingTop="0dp"
+            android:paddingBottom="8dp">
 
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
 
                 <TextView
                     android:text="@string/skiing"
@@ -205,7 +208,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:paddingLeft="20dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:textAllCaps="false" />
             </TableRow>
         </LinearLayout>
@@ -315,14 +318,14 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp">
+                android:paddingBottom="9dp"
+                android:paddingTop="4dp">
 
                 <TextView
                     android:text="@string/cycling"
@@ -333,7 +336,7 @@
                     android:paddingLeft="20dp"
                     android:fontFamily="sans-serif-condensed"
                     android:textAllCaps="false"
-                    android:textSize="21sp" />
+                    android:textSize="19sp" />
             </TableRow>
         </LinearLayout>
 
@@ -442,9 +445,9 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:paddingTop="0dp"
             android:gravity="center"
-            android:layout_marginTop="10dp"
+            android:background="@color/white">
             android:background="@color/white">
 
             <TableLayout
@@ -453,29 +456,78 @@
                 android:layout_gravity="center">
 
                 <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_weight="0.1">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp">
 
-                    <Switch
-                        android:text="Paved?"
+                    <TextView
+                        android:text="@string/surface"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/surface"
-                        android:checked="true"
-                        android:thumb="@drawable/switchselector"
-                        android:track="@drawable/customtrack"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textSize="21sp"
+                        android:id="@+id/textView5"
                         android:textColor="@color/colorPrimaryDark"
+                        android:paddingLeft="20dp"
+                        android:fontFamily="sans-serif-condensed"
                         android:textAllCaps="false"
-                        android:switchMinWidth="50dp" />
+                        android:textSize="19sp" />
                 </TableRow>
 
             </TableLayout>
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:elevation="1dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
+
+            <RadioGroup
+                android:id="@+id/surface"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:button="@null"
+                    android:id="@+id/asphalt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/asphalt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"
+                   />
+
+                <RadioButton
+                    android:button="@null"
+                    android:id="@+id/dirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:background="@drawable/dirt"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center" />
+
+                <RadioButton
+                    android:button="@null"
+                    android:id="@+id/rocky"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:background="@drawable/rocky"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textAlignment="center"/>
+
+            </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>
