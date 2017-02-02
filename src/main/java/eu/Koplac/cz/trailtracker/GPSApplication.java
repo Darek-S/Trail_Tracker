@@ -65,7 +65,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
     private String surface="1";
     private String skiing="1111";
     private String cycling="1111";
-
+///// USER identification
     public void saveName(String str, String email){
         SharedPreferences saved = getSharedPreferences("login",0);
         //saved.getString("name","");

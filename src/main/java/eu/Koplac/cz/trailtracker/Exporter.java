@@ -47,6 +47,10 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
+import static eu.koplac.cz.trailtracker.R.string.email;
+import static eu.koplac.cz.trailtracker.R.string.user;
+import static eu.koplac.cz.trailtracker.R.string.user_name;
+
 
 public class Exporter extends Thread {
 
@@ -281,6 +285,11 @@ public class Exporter extends Thread {
                     KMLbw.write("  </Placemark>" + newLine + newLine);
                 }
                 if (ExportGPX) {
+
+                    ////// last line of JSON with default values (because of the last ,)
+                    GPXbw.write("{" + "\"meta\""+":"+"{"+"\"trail\""+ ":" +
+                           "11111"+ ","+"\"skii\""+ ":" + "1111"+ "," + "\"cycling\""+ ":" +
+                            "1111"+ "," + "\"surface\""+ ":" + "1"+ "," +"\"USER Email\""+":"+"\""+email +"\""+  "}"+ "}"+ newLine);
                     GPXbw.write("]" + newLine);
 
                 }
