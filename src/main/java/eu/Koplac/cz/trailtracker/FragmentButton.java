@@ -272,13 +272,13 @@ public class FragmentButton extends Fragment {
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
                     switch(checkedId){
                         case R.id.asphalt:
-                            ((GPSApplication)getActivity().getApplication()).setSurface("A");
+                            ((GPSApplication)getActivity().getApplication()).setSurface("1");
                             break;
                         case R.id.dirt:
-                            ((GPSApplication)getActivity().getApplication()).setSurface("D");
+                            ((GPSApplication)getActivity().getApplication()).setSurface("2");
                             break;
                         case R.id.rocky:
-                            ((GPSApplication)getActivity().getApplication()).setSurface("R");
+                            ((GPSApplication)getActivity().getApplication()).setSurface("3");
                             break;
                     }
                 }

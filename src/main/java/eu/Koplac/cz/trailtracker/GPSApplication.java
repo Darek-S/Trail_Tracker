@@ -60,11 +60,11 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class GPSApplication extends Application implements GpsStatus.Listener, LocationListener {
 
-    //Darek edit
-    private String color="00000";
-    private String surface="0000";
-    private String skiing="0000";
-    private String cycling="0000";
+    //Szabi  edit  functions connecting to the trail buttons
+    private String color="11111";
+    private String surface="1";
+    private String skiing="1111";
+    private String cycling="1111";
 
     public void saveName(String str, String email){
         SharedPreferences saved = getSharedPreferences("login",0);
@@ -82,59 +82,59 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
     public void setRed(Boolean set){
         String postfix=color.substring(1,5);
         if(set) {
-            color = "R" + postfix;
+            color = "2" + postfix;
         }
         else{
-            color = "0" + postfix;
+            color = "1" + postfix;
         }
     }
     public void setBlue(Boolean set){
         String prefix=color.substring(0,1);
         String postfix=color.substring(2,5);
         if(set) {
-            color = prefix +"B" + postfix;
+            color = prefix +"2" + postfix;
         }
         else{
-            color = prefix +"0" + postfix;
+            color = prefix +"1" + postfix;
         }
     }
     public void setGreen(Boolean set){
         String prefix=color.substring(0,2);
         String postfix=color.substring(3,5);
         if(set) {
-            color = prefix +"G" + postfix;
+            color = prefix +"2" + postfix;
         }
         else{
-            color = prefix +"0" + postfix;
+            color = prefix +"1" + postfix;
         }
     }
     public void setYellow(Boolean set){
         String prefix=color.substring(0,3);
         String postfix=color.substring(4,5);
         if(set) {
-            color = prefix +"Y" + postfix;
+            color = prefix +"2" + postfix;
         }
         else{
-            color = prefix +"0" + postfix;
+            color = prefix +"1" + postfix;
         }
     }
     public void setEducational(Boolean set){
         String prefix=color.substring(0,4);
 
         if(set) {
-            color = prefix +"E";
+            color = prefix +"2";
         }
         else{
-            color = prefix +"0";
+            color = prefix +"1";
         }
     }
     public void setSkiired(Boolean set){
         String postfix=skiing.substring(1,4);
         if(set) {
-            skiing = "R" + postfix;
+            skiing = "2" + postfix;
         }
         else{
-            skiing = "0" + postfix;
+            skiing = "1" + postfix;
         }
     }
 
@@ -142,10 +142,10 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
         String prefix=skiing.substring(0,1);
         String postfix=skiing.substring(2,4);
         if(set) {
-            skiing = prefix +"B" + postfix;
+            skiing = prefix +"2" + postfix;
         }
         else{
-            skiing = prefix +"0" + postfix;
+            skiing = prefix +"1" + postfix;
         }
     }
 
@@ -153,29 +153,29 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
         String prefix=skiing.substring(0,2);
         String postfix=skiing.substring(3,4);
         if(set) {
-            skiing = prefix +"G" + postfix;
+            skiing = prefix +"2" + postfix;
         }
         else{
-            skiing = prefix +"0" + postfix;
+            skiing = prefix +"1" + postfix;
         }
     }
     public void setSkiiwhite(Boolean set){
         String prefix=skiing .substring(0,3);
 
         if(set) {
-            skiing  = prefix +"W";
+            skiing  = prefix +"2";
         }
         else{
-            skiing  = prefix +"0";
+            skiing  = prefix +"1";
         }
     }
     public void setbikred(Boolean set){
         String postfix=cycling.substring(1,4);
         if(set) {
-            cycling = "R" + postfix;
+            cycling = "2" + postfix;
         }
         else{
-            cycling= "0" + postfix;
+            cycling= "1" + postfix;
         }
     }
 
@@ -183,20 +183,20 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
         String prefix=cycling.substring(0,1);
         String postfix=cycling.substring(2,4);
         if(set) {
-            cycling = prefix +"B" + postfix;
+            cycling = prefix +"2" + postfix;
         }
         else{
-           cycling = prefix +"0" + postfix;
+           cycling = prefix +"1" + postfix;
         }
     }
     public void setbikegreen(Boolean set){
         String prefix=cycling.substring(0,2);
         String postfix=cycling.substring(3,4);
         if(set) {
-            cycling = prefix +"G" + postfix;
+            cycling = prefix +"2" + postfix;
         }
         else{
-            cycling = prefix +"0" + postfix;
+            cycling = prefix +"1" + postfix;
         }
     }
 
@@ -204,12 +204,15 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
         String prefix=cycling .substring(0,3);
 
         if(set) {
-           cycling  = prefix +"W";
+           cycling  = prefix +"2";
         }
         else{
-            cycling = prefix +"0";
+            cycling = prefix +"1";
         }
     }
+
+
+    ////////////////////////////////////////////////
     public static final float M_TO_FT = 3.280839895f;
 
     public static final int UM_METRIC_MS = 0;
@@ -589,7 +592,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
                 }
             }
         }
-        //Darek edit
+        //Darek edit    STORE USER name and EMAIL (shared preferences)
         SharedPreferences saved = getSharedPreferences("login",0);
         String namestr="";
         if(saved.contains("name"))
@@ -720,7 +723,7 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
         if (loc != null) {      // Location data is valid
             LocationExtended eloc = new LocationExtended(loc);
             eloc.setNumberOfSatellites(getNumberOfSatellites());
-            eloc.setColor(color);//Darek edit
+            eloc.setColor(color);//SZABI EDIT
             eloc.setSurface(surface);
             eloc.setSkiing(skiing);
             eloc.setCycling(cycling);
@@ -948,8 +951,8 @@ public class GPSApplication extends Application implements GpsStatus.Listener, L
                     locationExtended = new LocationExtended(asyncTODO.location.getLocation());
                     locationExtended.setNumberOfSatellites(asyncTODO.location.getNumberOfSatellites());
                     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    locationExtended.setColor(asyncTODO.location.getColor()); ////DAREK
-                    locationExtended.setSurface(asyncTODO.location.getSurface());///Szabi
+                    locationExtended.setColor(asyncTODO.location.getColor()); ////DAREK edit   storing data
+                    locationExtended.setSurface(asyncTODO.location.getSurface());///Szabi szabi edit
                     locationExtended.setSkiing(asyncTODO.location.getSkiing());
                     locationExtended.setCycling(asyncTODO.location.getCycling());
                     _currentLocationExtended = locationExtended;

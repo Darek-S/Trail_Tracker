@@ -56,6 +56,7 @@ public class Exporter extends Thread {
     int GroupOfLocations = 200; // Reads and writes location grouped by 200;
     boolean ExportKML = true;
     boolean ExportGPX = true;
+    boolean ExportJSON = true;
     String SaveIntoFolder = "/";
     double AltitudeManualCorrection = 0;
     boolean EGMAltitudeCorrection = false;
@@ -73,6 +74,7 @@ public class Exporter extends Thread {
 
         this.ExportGPX = ExportGPX;
         this.ExportKML = ExportKML;
+        this.ExportJSON = ExportJSON;
         this.SaveIntoFolder = SaveIntoFolder;
         this.login = logn;
         this.email=email;
@@ -117,6 +119,7 @@ public class Exporter extends Thread {
 
         File KMLfile = null;
         File GPXfile = null;
+
         final String newLine = System.getProperty("line.separator");
 
         // Verify if Folder exists
@@ -195,11 +198,8 @@ public class Exporter extends Thread {
             if (ExportGPX) {
                 // Writing head of GPX file
 
-                GPXbw.write("<?xml version=\"1.0\"?>" + newLine);
-                GPXbw.write("<!-- Created with BasicAirData GPS Logger for Android - ver. " + versionName + " -->" + newLine);
-                GPXbw.write("<!-- Track " + String.valueOf(track.getId()) + " = " + String.valueOf(track.getNumberOfLocations())
-                        + " TrackPoints + " + String.valueOf(track.getNumberOfPlacemarks()) + " Placemarks -->" + newLine);
-                GPXbw.write("<gpx creator=\"BasicAirData GPS Logger\" version=\"" + versionName + "\" xmlns=\"http://www.topografix.com/GPX/1/0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd\">" + newLine + newLine);
+
+                GPXbw.write("[" + newLine );
             }
 
 
@@ -227,13 +227,8 @@ public class Exporter extends Thread {
                     KMLbw.write("    <coordinates>" + newLine);
                 }
                 if (ExportGPX) {
-                    GPXbw.write("<trk>" + newLine);
-                    //Darek edit
-                    GPXbw.write(" <user>" + login + "</user>" + newLine);
-                    GPXbw.write(" <email>" + email + "</email>" + newLine);
-                    GPXbw.write(" <name>" + track.getName() + "</name>" + newLine);
-                    GPXbw.write(" <desc>GPS Logger: " + track.getName() + "</desc>" + newLine);
-                    GPXbw.write(" <trkseg>" + newLine);
+
+
                 }
 
                 List<LocationExtended> locationList = new ArrayList<LocationExtended>();
@@ -264,39 +259,12 @@ public class Exporter extends Thread {
                             }
                             // GPX
                             if (ExportGPX) {
-                                GPXbw.write("  <trkpt lat=\"" + formattedLatitude + "\" lon=\"" + formattedLongitude + "\">");
-                                //Darek edit
-                                GPXbw.write(" <color>");
-                                GPXbw.write(loc.getColor());
-                                GPXbw.write("</color>");
-                                GPXbw.write(" <surface>");
-                              GPXbw.write(loc.getSurface());
-                                GPXbw.write("</surface>");
-                                GPXbw.write(" <Skiing>");
-                                GPXbw.write(loc.getSkiing());
-                                GPXbw.write("</Skiing>");
-                                GPXbw.write(" <Cycling>");
-                                GPXbw.write(loc.getCycling());
-                                GPXbw.write("</Cycling>");
-                                if (loc.getLocation().hasAltitude()) {
-                                    GPXbw.write(" <ele>");     // Elevation
-                                    GPXbw.write(formattedAltitude);
-                                    GPXbw.write("</ele>");
-                                }
-                                if (loc.getLocation().hasSpeed()) {
-                                    GPXbw.write(" <speed>");     // Speed
-                                    GPXbw.write(String.format(Locale.US, "%.3f", loc.getLocation().getSpeed()));
-                                    GPXbw.write("</speed>");
-                                }
-                                GPXbw.write("<time>");     // Time
-                                GPXbw.write(dfdt.format(loc.getLocation().getTime()));
-                                GPXbw.write("</time>");
-                                //if (loc.getNumberOfSatellites() > 0) {                            // NOT YET IMPLEMENTED: GPX standards requires sats used for FIX.
-                                //    GPXbw.write("<sat>");                                         // but those are the number of satellites in view!!!
-                                //    GPXbw.write(String.valueOf(loc.getNumberOfSatellites()));     // TODO: Save the satellites used in FIX
-                                //    GPXbw.write("</sat>");
-                                //}
-                                GPXbw.write("</trkpt>" + newLine);
+
+                                GPXbw.write("{" + "\"lat\"" + ":" + formattedLatitude + "," + "\"lng\"" + ":" + formattedLongitude + "," +  "\"meta\""+":"+"{"+"\"trail\""+ ":" +
+                                         loc.getColor()+ ","+"\"skii\""+ ":" + loc.getSkiing()+ "," + "\"cycling\""+ ":" +
+                                        loc.getCycling()+ "," + "\"surface\""+ ":" + loc.getSurface()+  "}"+     "}"+","+ newLine);
+
+
                             }
                         }
                     }
@@ -313,8 +281,8 @@ public class Exporter extends Thread {
                     KMLbw.write("  </Placemark>" + newLine + newLine);
                 }
                 if (ExportGPX) {
-                    GPXbw.write(" </trkseg>" + newLine);
-                    GPXbw.write("</trk>" + newLine + newLine);
+                    GPXbw.write("]" + newLine);
+
                 }
             }
 

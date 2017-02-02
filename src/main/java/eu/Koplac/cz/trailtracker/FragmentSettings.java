@@ -57,8 +57,6 @@ public class FragmentSettings extends PreferenceFragmentCompat {
 
     private ProgressDialog mProgressDialog;
     public boolean Downloaded = false;
-
-
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
